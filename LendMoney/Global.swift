@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 //屏宽
 let Global_ScreenHeight = UIScreen.main.bounds.size.height
 //屏高
@@ -24,7 +23,6 @@ let Global_ScreenHeightEdit = Global_ScreenHeight - Global_StatusHeight - Global
 //除去导航栏、状态栏的屏幕高度
 let Global_ScreenHeightEditWithOutTab = Global_ScreenHeight - Global_StatusHeight - Global_NavigitionBarHeight - Global_TabbarHeight
 
-
 //是否X类机型
 var isX_Model: Bool {
     get {
@@ -32,3 +30,4 @@ var isX_Model: Bool {
             (Global_ScreenWidth == 414.0 && Global_ScreenHeight == 896)
     }
 }
+

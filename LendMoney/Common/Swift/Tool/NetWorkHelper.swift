@@ -8,6 +8,31 @@
 
 import AFNetworking
 import MBProgressHUD
+
+public enum NetWorkRequestUrl : String,CaseIterable {
+    case none = ""
+    case getcode = "http://127.0.0.1:1024/getcode"
+    case register = "http://127.0.0.1:1024/register"
+}
+
+public enum NetWorkRequestType {
+    case get
+    case post
+}
+
+class NetWorkRequest : NSObject {
+    var requestUrl: NetWorkRequestUrl = .none
+    var requestParamters:Dictionary<String, String>?
+    var requestType: NetWorkRequestType = .post
+    convenience init(requestType:NetWorkRequestType,requestUrl:NetWorkRequestUrl,requestParamters:Dictionary<String, String>) {
+        self.init()
+        self.requestUrl = requestUrl
+        self.requestType = requestType
+        self.requestParamters = requestParamters
+    }
+}
+
+
 class NetWorkHelper: AFHTTPSessionManager {
     
     static let shareInstance : NetWorkHelper = {
@@ -18,6 +43,23 @@ class NetWorkHelper: AFHTTPSessionManager {
     }()
     
     /**
+     发起请求
+     
+     @ parameter request:  请求对象
+     */
+    class func request(request:NetWorkRequest,success:((_ responseObject:AnyObject?) -> Void)?,failure:((_ error:NSError) -> Void)?) -> Void {
+        
+        if request.requestType == .get {
+            NetWorkHelper.get(urlString: request.requestUrl.rawValue, parameters: request.requestParamters as AnyObject, success: success, failure: failure)
+        }
+        
+        if request.requestType == .post {
+            NetWorkHelper.post(urlString: request.requestUrl.rawValue, parameters: request.requestParamters as AnyObject, success: success, failure: failure)
+        }
+    }
+
+    
+    /**
      get请求
      
      @ parameter urlString:  请求的url
@@ -26,6 +68,7 @@ class NetWorkHelper: AFHTTPSessionManager {
      @ parameter failure:    请求失败回调
      */
     class func get(urlString:String,parameters:AnyObject?,success:((_ responseObject:AnyObject?) -> Void)?,failure:((_ error:NSError) -> Void)?) -> Void {
+        
         let hud = MBProgressHUD.showAdded(to: UIApplication.shared.keyWindow, animated: true)
         NetWorkHelper.shareInstance.get(urlString, parameters: parameters, progress: { (progress) in }, success: { (task, responseObject) in
             hud?.hide(true)
@@ -63,6 +106,7 @@ class NetWorkHelper: AFHTTPSessionManager {
         }
         
     }
+    
     
     /**
      显示信息

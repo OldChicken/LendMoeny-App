@@ -95,8 +95,9 @@ extension MeViewViewController : UITableViewDataSource {
  
         switch cellItem.keyId {
         case .Register?:
-            let register = RegisterViewController()
-            self.present(register, animated: true, completion: nil)
+            let registerCodeVC = RegisterCodeViewController()
+            let registerCodeNav = UINavigationController.init(rootViewController: registerCodeVC)
+            self.present(registerCodeNav, animated: true, completion: nil)
         case .Geofencing?:
             let geofencingVC = GeofencingViewController.init()
             geofencingVC.hidesBottomBarWhenPushed = true
