@@ -14,25 +14,29 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Kingfisher (4.10.1)
   - MBProgressHUD (0.9.2)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
+  - Kingfisher
   - MBProgressHUD (~> 0.8)
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Kingfisher
     - MBProgressHUD
     - SnapKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: adb56fb8c637a8a84ff116056a325862ddcd8c83
+PODFILE CHECKSUM: 6cbe4398edd1535f35213391f5cbbd89ea4d0da0
 
 COCOAPODS: 1.5.3

@@ -10,7 +10,7 @@ import UIKit
 
 class MainTabBarViewController: UITabBarController {
     
-//    let nameArrary = ["首页","设置","我"]
+//    let nameArrary = ["借款","我"]
     
     //MARK: - 🍎override method
     override func viewDidLoad() {
@@ -28,15 +28,22 @@ class MainTabBarViewController: UITabBarController {
     //MARK: - 🍌private method
     private func createControllers() {
         
+        //借款
+        let applyVC = ApplyViewController.init()
+        applyVC.title = "借款"
+        
         //我
         let meVC = MeViewViewController.init()
         meVC.title = "我"
-        
         let meNav = UINavigationController.init(rootViewController: meVC)
         meNav.navigationItem.title = "返回"
         meNav.navigationBar.tintColor = UIColor.black
         
-        viewControllers = [meNav]
+  
+        viewControllers = [applyVC,meNav]
+        
+        
+        
     }
 
     
