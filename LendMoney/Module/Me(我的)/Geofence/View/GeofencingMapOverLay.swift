@@ -16,8 +16,7 @@ class GeofencingMapOverLay: UIView {
             if cornerRadis < 1000 {
                 radiusLabel.text = "\(cornerRadis)" + "m"
             }else {
-                cornerRadis /= 1000
-                radiusLabel.text = "\(cornerRadis)" + "km"
+                radiusLabel.text = "\(cornerRadis/1000)" + "km"
             }
         }
     }
@@ -85,5 +84,7 @@ class GeofencingMapOverLay: UIView {
         let cornerRadius = self.frame.width / 2
         self.layer.cornerRadius = cornerRadius
     }
+    
+    
 
 }

@@ -13,7 +13,7 @@ class ApplyViewController: BaseViewController {
     
     private var table: UITableView = {
         let result = UITableView(frame: .zero, style: .grouped)
-        result.register(AdCarouselTableViewCell.self, forCellReuseIdentifier: AdCarouselTableViewCell.cellIdentifier)
+//        result.register(AdCarouselTableViewCell.self, forCellReuseIdentifier: AdCarouselTableViewCell.cellIdentifier)
         return result
     }()
     
@@ -44,8 +44,10 @@ extension ApplyViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: AdCarouselTableViewCell.cellIdentifier) as? AdCarouselTableViewCell
-        return cell!
+//        let cell = tableView.dequeueReusableCell(withIdentifier: AdCarouselTableViewCell.cellIdentifier) as? AdCarouselTableViewCell
+//        return cell!
+        
+        return UITableViewCell.init()
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {

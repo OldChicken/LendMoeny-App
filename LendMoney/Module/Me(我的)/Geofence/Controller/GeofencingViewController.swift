@@ -132,6 +132,25 @@ class GeofencingViewController: BaseViewController,GeofencingMapViewDelegate,Geo
         saveDic["cornerRadius"] = geofencingMap.mapOverLay.cornerRadis
         UserDefaults.standard.set(saveDic, forKey: "geofencing")
         print(saveDic)
+        
+
+        //开启/关闭地理围栏监测
+        let longitude = geofencingMap.map.centerCoordinate.longitude
+        let latitude = geofencingMap.map.centerCoordinate.latitude
+        let radius = geofencingMap.mapOverLay.cornerRadis
+        let identifier = "geofencing"
+        
+        if geofencingInfo.isOpen {
+            //添加围栏
+            locationHelper?.addGeofence(longitude, latitude: latitude, radius: radius, identifier: identifier, completion: { (success) in
+                if !success {
+                    print("error:radius is over limit!")
+                }
+            })
+        }else {
+            //删除围栏
+            locationHelper?.removeGeofence(identifier)
+        }
     }
     
     func updateGeofenceStatus() {
@@ -205,7 +224,6 @@ class GeofencingViewController: BaseViewController,GeofencingMapViewDelegate,Geo
                     //无权限时，可以关闭使能
                     self.geofencingMap.status = .noPermissionDisable
                     self.geofencingInfo.status = .noPermissionDisable
-//                    self.saveGeofencingDate()//错误，无权限的时候，只能更新开关，不能更新地图信息
                     self.updateGeofenceStatus()
                 }
                 
@@ -227,6 +245,13 @@ class GeofencingViewController: BaseViewController,GeofencingMapViewDelegate,Geo
         }
     }
     
-
+    func pushToGeofenceActionSetting() {
+        
+        let genfenceNotifyVC = GeofencingNotifySetViewController()
+        genfenceNotifyVC.presetId = "testId"
+        self.navigationController?.pushViewController(genfenceNotifyVC, animated: true)
+        
+        
+    }
     
 }

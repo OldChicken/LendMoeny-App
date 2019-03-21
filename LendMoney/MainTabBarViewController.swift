@@ -40,7 +40,7 @@ class MainTabBarViewController: UITabBarController {
         meNav.navigationBar.tintColor = UIColor.black
         
   
-        viewControllers = [applyVC,meNav]
+        viewControllers = [meNav]
         
         
         

@@ -98,7 +98,7 @@ class GeofencingMapView: UIView,MKMapViewDelegate {
         }
         
         let maskLogo = UIImageView.init()
-        maskLogo.backgroundColor = UIColor.orange
+        maskLogo.image = UIImage.init(named: "genfence_icon_notice")
         result.addSubview(maskLogo)
         maskLogo.snp.makeConstraints({ (maker) in
             maker.centerX.equalTo(result)
@@ -107,7 +107,7 @@ class GeofencingMapView: UIView,MKMapViewDelegate {
         })
         
         let maskTipLabel = UILabel.init()
-        maskTip = maskTipLabel
+        self.maskTip = maskTipLabel
         result.addSubview(maskTipLabel)
         maskTipLabel.snp.makeConstraints({ (maker) in
             maker.top.equalTo(maskLogo.snp.bottom).offset(10)
@@ -205,7 +205,13 @@ class GeofencingMapView: UIView,MKMapViewDelegate {
         let startLocation = CLLocation.init(latitude: starthMapCoordinate.latitude, longitude: starthMapCoordinate.longitude)
         let endLocation = CLLocation.init(latitude: endMapCoordinate.latitude, longitude: endMapCoordinate.longitude)
         let result = startLocation.distance(from: endLocation)
+        
+        let zoomeLevel = map.catelateZoomLevel(geofenceCenter: map.centerCoordinate, geofenceRadius: result)
+        print(zoomeLevel)
+        
         return result
+        
+        
     }
     
 

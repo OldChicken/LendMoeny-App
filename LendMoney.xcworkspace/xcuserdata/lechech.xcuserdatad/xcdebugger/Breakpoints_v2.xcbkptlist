@@ -6,32 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LendMoney/Common/Swift/Tool/NetWorkHelper.swift"
-            timestampString = "568352594.756662"
+            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/Controller/GeofencingViewController.swift"
+            timestampString = "574826048.2696559"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "request(request:success:failure:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "saveGeofencingDate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LendMoney/Module/Apply(&#x7533;&#x8bf7;)/Main/Controller/ApplyViewController.swift"
-            timestampString = "568719206.57807"
+            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/View/GeofencingMapView.swift"
+            timestampString = "574826048.2697411"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "table"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "status"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LendMoney/Module/Apply(&#x7533;&#x8bf7;)/Main/View/AdCarouselTableViewCell.swift"
-            timestampString = "568719206.5791301"
+            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/MKMapView+ZoomLevel.swift"
+            timestampString = "574826048.26984"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "createCyclePicture1()"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "zoomLevel"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/View/GeofencingMapView.swift"
+            timestampString = "574826048.27029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "cacluteDistance(startPoint:endPoint:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

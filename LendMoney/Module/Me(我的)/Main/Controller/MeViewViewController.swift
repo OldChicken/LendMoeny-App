@@ -103,9 +103,13 @@ extension MeViewViewController : UITableViewDataSource {
             geofencingVC.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(geofencingVC, animated: true)
         case .Setting? :
-            let setVC = SetViewController.init()
-            setVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(setVC, animated: true)
+            
+            let location = LCLocationHelper.sharedInstance()
+            location?.sendLocalNoticeEnterGeofence(true)
+            
+//            let setVC = SetViewController.init()
+//            setVC.hidesBottomBarWhenPushed = true
+//            self.navigationController?.pushViewController(setVC, animated: true)
         default:
             break
         }

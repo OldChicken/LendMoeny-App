@@ -19,6 +19,8 @@ enum GeofencingStatus {
 protocol GeofencingInfoViewDelegate: class {
     //改变状态
     func transToStatus(status:GeofencingStatus)
+    //跳转到围栏消息设置界面
+    func pushToGeofenceActionSetting()
 }
 
 class GeofencingInfoView: UIView {
@@ -39,28 +41,35 @@ class GeofencingInfoView: UIView {
             maker.bottom.equalTo(self).offset(-20)
             maker.leading.equalTo(self).offset(15)
             maker.trailing.equalTo(self).offset(-15)
-            maker.height.equalTo(40)
+            maker.height.equalTo(40 )
         }
         self.addSubview(disableButton)
         disableButton.snp.makeConstraints { (maker) in
             maker.bottom.equalTo(self).offset(-20)
             maker.leading.equalTo(self).offset(15)
             maker.trailing.equalTo(self).offset(-15)
-            maker.height.equalTo(40)
+            maker.height.equalTo(40 )
         }
         self.addSubview(modifyButton)
         modifyButton.snp.makeConstraints { (maker) in
             maker.bottom.equalTo(disableButton.snp.top).offset(-10)
             maker.leading.equalTo(self).offset(15)
             maker.trailing.equalTo(self).offset(-15)
-            maker.height.equalTo(40)
+            maker.height.equalTo(40 )
+        }
+        self.addSubview(notifySetButton)
+        notifySetButton.snp.makeConstraints { (maker) in
+            maker.bottom.equalTo(modifyButton.snp.top).offset(-10)
+            maker.leading.equalTo(self).offset(15)
+            maker.trailing.equalTo(self).offset(-15)
+            maker.height.equalTo(40 )
         }
         self.addSubview(okButton)
         okButton.snp.makeConstraints { (maker) in
             maker.bottom.equalTo(self).offset(-20)
             maker.leading.equalTo(self).offset(15)
             maker.trailing.equalTo(self).offset(-15)
-            maker.height.equalTo(40)
+            maker.height.equalTo(40 )
         }
     }
     
@@ -77,7 +86,7 @@ class GeofencingInfoView: UIView {
     var status: GeofencingStatus = .disable {
         didSet{
             switch status {
-        
+                
             case .disable,.noPermissionDisable:
                 //显示开启按钮，显示未开启信息
                 disableInfoView.isHidden = false
@@ -87,6 +96,7 @@ class GeofencingInfoView: UIView {
                 disableButton.isHidden = true
                 okButton.isHidden = true
                 modifyButton.isHidden = true
+                notifySetButton.isHidden = true
                 isOpen = false
             case .enable,.noPermissionEnable:
                 //显示关闭按钮，显示编辑按钮，显示开启信息
@@ -97,6 +107,7 @@ class GeofencingInfoView: UIView {
                 disableButton.isHidden = false
                 okButton.isHidden = true
                 modifyButton.isHidden = false
+                notifySetButton.isHidden = false
                 isOpen = true
             case .editing:
                 //显示编辑按钮，显示开启信息
@@ -107,6 +118,7 @@ class GeofencingInfoView: UIView {
                 disableButton.isHidden = true
                 okButton.isHidden = false
                 modifyButton.isHidden = true
+                notifySetButton.isHidden = true
                 isOpen = true
             }
         }
@@ -232,12 +244,29 @@ class GeofencingInfoView: UIView {
         result.isHidden = true
         return result
     }()
+    
+    lazy var notifySetButton: UIButton = {
+        let result = UIButton.init(type: UIButtonType.custom)
+        result.isAccessibilityElement = true;
+        result.backgroundColor = UIColor.white
+         result.setTitleColor(UIColor.lcc_colorWithHexString(hexadecimal: "#25397e"), for: UIControl.State.normal)
+        result.layer.cornerRadius = 20
+        result.layer.masksToBounds = true
+        result.layer.borderWidth = 1
+        result.layer.borderColor = UIColor.lcc_colorWithHexString(hexadecimal: "#25397e").cgColor
+        result.layer.cornerRadius = 20
+        result.layer.masksToBounds = true
+        result.setTitle("Notification Settings", for: UIControlState.normal)
+        result.addTarget(self, action: #selector(buttonClick(sender:)), for: .touchUpInside)
+        result.isHidden = true
+        return result
+    }()
 
 
     //MARK: button action
     @objc func buttonClick(sender:UIButton) {
         if sender == enableButton {
-            self.delegate?.transToStatus(status: .enable)
+            self.delegate?.transToStatus(status: .editing)
         }
         if sender == disableButton {
             self.delegate?.transToStatus(status: .disable)
@@ -247,6 +276,9 @@ class GeofencingInfoView: UIView {
         }
         if sender == modifyButton {
             self.delegate?.transToStatus(status: .editing)
+        }
+        if sender == notifySetButton{
+            self.delegate?.pushToGeofenceActionSetting()
         }
     }
 }
