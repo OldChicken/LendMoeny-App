@@ -41,14 +41,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/MKMapView+ZoomLevel.swift"
-            timestampString = "574826048.26984"
+            filePath = "LendMoney/Common/ObjectiveC/Tool/LCLocationHelper.m"
+            timestampString = "577012049.250074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "zoomLevel"
-            landmarkType = "24">
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "-outsideGeofenceAlert"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LendMoney/Module/Me(&#x6211;&#x7684;)/Geofence/View/GeofencingMapView.swift"
-            timestampString = "574826048.27029"
+            filePath = "LendMoney/Common/ObjectiveC/Tool/LCLocationHelper.m"
+            timestampString = "577012051.553913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
-            landmarkName = "cacluteDistance(startPoint:endPoint:)"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "-insideGeofenceAlert"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
